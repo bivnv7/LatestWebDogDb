@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+
+    .carousel-item {
+        height: 450px; /* Задайте желаната фиксирана височина */
+        width: 1200px;
+    }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Изрязва снимката пропорционално, за да запълни контейнера */
+            object-position: center; /* Центрира фокуса на изображението */
+        }
+</style> 
+
+    <div class="container mt-5">
+        <div class="text-center">
+
+            <h1 class="display-4 fw-bold text-primary">Национална изложба на кучета</h1>
+
+
+
+        <!-- Bootstrap 5 Слайдшоу -->
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnbGzzY3xe4dCnVAiLYZFIOVt1OUg4McLE-oXNHoTMfQ&s=10" class="d-block w-100" alt="..." >
+                </div>
+                <div class="carousel-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo1vzdbZUCTd6VX56Dbz8zjrcqMhFyMRxSPeleZvZiyQ&s=10" class="d-block w-100" alt="..." >
+                </div>
+                <div class="carousel-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaY-OcIyRC8IKBDJq8UJOchz2jDuDxMThOuSdGL5wnJw&s=10" class="d-block w-100" alt="..." >
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+    
+
+            <div class="my-4">
+                <img src="https://t3.ftcdn.net/jpg/18/55/52/44/360_F_1855524482_b4o5zNNJbM1RhEplL5J0W8CnbsRoOjsr.jpg"
+                     class="img-fluid rounded shadow"
+                     alt="Кучета от различни породи"
+                     style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 text-center">
+                <h2 class="mb-4">Какво ви очаква на събитието?</h2>
+                <ul class="list-unstyled lh-lg fs-5">
+                    <li><strong>Конкурси за различни породи</strong> </li>
+                    <li><strong>Специални награди</strong> </li>
+                    <li> <strong>Аксесоари за кучета</strong> </li>
+                </ul>
+                <p class="mt-4 text-muted">Заповядайте, за да споделим заедно любовта към четириногите ни приятели!</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
