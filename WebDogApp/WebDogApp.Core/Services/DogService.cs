@@ -23,7 +23,7 @@ namespace WebDogApp.Core.Services
             {
                 Name = name,
                 Age = age,
-                BreedId = _context.Breeds.Find(breedId),
+                Breed = _context.Breeds.Find(breedId),
                 Picture = picture
             };
             _context.Dogs.Add(item);
@@ -59,12 +59,28 @@ namespace WebDogApp.Core.Services
 
         public bool RemoveById(int dogID)
         {
-            
+            var dog = GetDogById(dogID);
+            if (dog == default(Dog))
+            {
+                return false;
+            }
+            _context.Remove(dog);
+            return _context.SaveChanges() != 0;
         }
 
         public bool UpdateDog(int dogID, string name, int age, int breedId, string picture)
         {
-            throw new NotImplementedException();
+            var dog = GetDogById(dogID);
+            if (dog == default(Dog))
+            {
+                return false;
+            }
+            dog.Name = name;
+            dog.Age = age;
+            dog.Breed = _context.Breeds.Find(breedId);
+            dog.Picture = picture;
+            _context.Update(dog);
+            return _context.SaveChanges() != 0;
         }
     }
 }
