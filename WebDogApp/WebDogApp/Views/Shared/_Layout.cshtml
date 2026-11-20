@@ -36,12 +36,29 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contacts">Contacts</a>
                         </li>
-
+                            
+                                <li class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dog Breeds
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" asp-controller="Dog" asp-action="Index" asp-route-searchStringBreed="Husky">Husky</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Dog" asp-action="Index" asp-route-searchStringBreed="Pinscher">Pinscher</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Dog" asp-action="Index" asp-route-searchStringBreed="Cocer spaniel">Cocer spaniel</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Dog" asp-action="Index" asp-route-searchStringBreed="Dachshund">Dachshund</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Dog" asp-action="Index" asp-route-searchStringBreed="Doberman">Doberman</a></li>
+                                    </ul>
+                                </li>
+                         <li class="nav-item">
+                             <a class="nav-link text-dark" asp-area="" asp-controller="Dog" asp-action="Index">Index</a>
+                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">

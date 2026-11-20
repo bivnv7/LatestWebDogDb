@@ -70,6 +70,14 @@
             </div>
         </div>
     </div>
+    <form asp-controller="Dog" asp-action="Index" method="get">
+        <p>
+            Breed: <input type="text" name="searchStringBreed" />
+            Name: <input type="text" name="searchStringName" />
+            Age: <input type="text" name="searchStringAge" />
+            <input type="submit" value="filter" />
+        </p>
+    </form>
 
 
 

@@ -15,6 +15,6 @@ namespace WebDogApp.Core.Contracts
         List<Dog> GetDogs();
         Dog GetDogById(int dogID);
         bool RemoveById(int dogID);
-        List<Dog> GetDogs(string searchStringBreed, string searchStringName);
+        List<Dog> GetDogs(string searchStringBreed, string searchStringName, string searchStringAge);
     }
 }

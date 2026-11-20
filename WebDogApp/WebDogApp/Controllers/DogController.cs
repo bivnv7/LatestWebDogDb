@@ -18,9 +18,9 @@ namespace WebDogApp.Controllers
             this._breedService = breedsService;
         }
         // GET: DogController
-        public ActionResult Index(string searchStringBreed, string searchStringName)
+        public ActionResult Index(string searchStringBreed, string searchStringName, string searchStringAge)
         {
-            List<IndexVM> dogs = _dogService.GetDogs(searchStringBreed, searchStringName).Select(item => new IndexVM
+            List<IndexVM> dogs = _dogService.GetDogs(searchStringBreed, searchStringName, searchStringAge).Select(item => new IndexVM
             {
                 Id = item.Id,
                 Name = item.Name,
