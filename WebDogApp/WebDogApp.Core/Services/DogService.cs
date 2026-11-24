@@ -17,14 +17,15 @@ namespace WebDogApp.Core.Services
         {
             _context = context;
         }
-        public bool Create(string name, int age, int breedId, string picture)
+        public bool Create(string name, int age, int breedId, string picture, string description)
         {
             Dog item = new Dog
             {
                 Name = name,
                 Age = age,
                 Breed = _context.Breeds.Find(breedId),
-                Picture = picture
+                Picture = picture,
+                Description = description
             };
             _context.Dogs.Add(item);
             return _context.SaveChanges() != 0;
@@ -41,10 +42,10 @@ namespace WebDogApp.Core.Services
             return dogs;
         }
 
-        public List<Dog> GetDogs(string searchStringBreed, string searchStringName, string searchStringAge)
+        public List<Dog> GetDogs(string searchStringBreed, string searchStringName, string searchStringAge, string searchStringDescription)
         {
             List<Dog> dogs = _context.Dogs.ToList();
-            if (!String.IsNullOrEmpty(searchStringBreed) && !String.IsNullOrEmpty(searchStringName) && !String.IsNullOrEmpty(searchStringAge))
+            if (!String.IsNullOrEmpty(searchStringBreed) && !String.IsNullOrEmpty(searchStringName) && !String.IsNullOrEmpty(searchStringAge) && !String.IsNullOrEmpty(searchStringAge))
             {
                 dogs = dogs.Where(d => d.Breed.Name.Contains(searchStringBreed)
                 && d.Name.Contains(searchStringName)
@@ -60,6 +61,10 @@ namespace WebDogApp.Core.Services
             {
                 dogs = dogs.Where(d => d.Age>=int.Parse(searchStringAge)).ToList();
             }
+            else if (!String.IsNullOrEmpty(searchStringName))
+            {
+                dogs = dogs.Where(d => d.Name.Contains(searchStringDescription)).ToList();
+            }
             return dogs;
         }
 
@@ -74,7 +79,7 @@ namespace WebDogApp.Core.Services
             return _context.SaveChanges() != 0;
         }
 
-        public bool UpdateDog(int dogID, string name, int age, int breedId, string picture)
+        public bool UpdateDog(int dogID, string name, int age, int breedId, string picture, string description)
         {
             var dog = GetDogById(dogID);
             if (dog == default(Dog))

@@ -23,7 +23,7 @@ namespace WebDogApp.Infrastructure.Data.Domain
         public virtual Breed Breed { get; set; } = null!;
 
         public string Picture { get; set; } = null!;
+        public string Description { get; set; } = null!;
 
-        
     }
 }

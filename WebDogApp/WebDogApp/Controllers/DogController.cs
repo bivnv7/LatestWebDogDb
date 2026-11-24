@@ -18,15 +18,16 @@ namespace WebDogApp.Controllers
             this._breedService = breedsService;
         }
         // GET: DogController
-        public ActionResult Index(string searchStringBreed, string searchStringName, string searchStringAge)
+        public ActionResult Index(string searchStringBreed, string searchStringName, string searchStringAge, string searchStringDescription)
         {
-            List<IndexVM> dogs = _dogService.GetDogs(searchStringBreed, searchStringName, searchStringAge).Select(item => new IndexVM
+            List<IndexVM> dogs = _dogService.GetDogs(searchStringBreed, searchStringName, searchStringAge, searchStringDescription).Select(item => new IndexVM
             {
                 Id = item.Id,
                 Name = item.Name,
                 Age = item.Age,
                 BreedName = item.Breed.Name,
-                Picture = item.Picture
+                Picture = item.Picture,
+                Description = item.Description
             }).ToList();
 
             
@@ -47,7 +48,8 @@ namespace WebDogApp.Controllers
                 Name = item.Name,
                 Age = item.Age,
                 BreedName = item.Breed.Name,
-                Picture = item.Picture
+                Picture = item.Picture,
+                Description = item.Description
             };
             return View(dog);
         }
@@ -62,8 +64,6 @@ namespace WebDogApp.Controllers
             }).ToList();
             return View(dog);
         }
-
-        // POST: DogController/Create
         // POST: DogController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -75,7 +75,8 @@ namespace WebDogApp.Controllers
                     dog.Name,
                     dog.Age,
                     dog.BreedId,
-                    dog.Picture
+                    dog.Picture,
+                    dog.Description
                 );
 
                 if (createdId)
@@ -104,7 +105,8 @@ namespace WebDogApp.Controllers
                 Name = item.Name,
                 BreedId = item.BreedId,
                 Age = item.Age,
-                Picture = item.Picture
+                Picture = item.Picture,
+                Description = item.Description 
             };
 
             dog.Breeds = _breedService.GetBreeds()
@@ -130,7 +132,8 @@ namespace WebDogApp.Controllers
                     bindingModel.Name,
                     bindingModel.Age,
                     bindingModel.BreedId,
-                    bindingModel.Picture
+                    bindingModel.Picture,
+                    bindingModel.Description
                 );
 
                 if (updated)
@@ -159,7 +162,8 @@ namespace WebDogApp.Controllers
                 Name = item.Name,
                 Age = item.Age,
                 BreedName = item.Breed.Name,
-                Picture = item.Picture
+                Picture = item.Picture,
+                Description = item.Description
             };
 
             return View(dog);

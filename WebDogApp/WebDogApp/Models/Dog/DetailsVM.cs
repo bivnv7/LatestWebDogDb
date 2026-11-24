@@ -13,5 +13,7 @@ namespace WebDogApp.Models.Dog
         public string BreedName { get; set; } = null!;
         [Display(Name = "Dog Picture")]
         public string Picture { get; set; } = null!;
+        [Display(Name = "Description")]
+        public string Description { get; set; } = null!;
     }
 }

@@ -18,6 +18,9 @@ namespace WebDogApp.Models.Dog
         public int BreedId { get; set; }
         [Display(Name = "Dog Picture")]
         public string Picture { get; set; } = null!;
+        [Display(Name = "Description")]
+        public string Description { get; set; } = null!;
+
         public virtual List<BreedPairViewModel> Breeds { get; set; } = new List<BreedPairViewModel>();
     }
 }

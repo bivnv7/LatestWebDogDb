@@ -11,56 +11,51 @@ ViewData["Title"] = "Index";
 <p>
 Breed: <input type="text" name="SearchStringBreed" />
 Name: <input type="text" name="SearchStringName" />
+Age: <input type="text" name="SearchStringAge" />
+Description: <input type="text" name="SearchStringDescription" />
 <input type="submit" value="Filter" />
 </p>
 </form>
-<table class="table">
-<thead>
-<tr>
-<th>
-@Html.DisplayNameFor(model => model.Name)
-</th>
-<th>
-@Html.DisplayNameFor(model => model.Age)
-</th>
-<th>
-@Html.DisplayNameFor(model => model.BreedName)
-</th>
-<th>
-@Html.DisplayNameFor(model => model.Picture)
-</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
+
+<div class="row">
 @foreach (var item in Model)
 {
-<tr>
-<td>
-@Html.DisplayFor(modelItem => item.Name)
-</td>
-<td>
-@Html.DisplayFor(modelItem => item.Age)
-</td>
-<td>
-@Html.DisplayFor(modelItem => item.BreedName)
-</td>
-<td>
+<div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+<div class="card h-100 shadow-sm border-0">
 <img src="@Html.DisplayFor(modelItem => item.Picture)"
-alt="Image" width="100" />
-@*@Html.DisplayFor(modelItem => item.Picture)*@
-</td>
-<td>
+class="card-img-top p-2"
+alt="@Html.DisplayFor(modelItem => item.Name)"
+style="height: 150px; object-fit: contain;" />
+<div class="card-body d-flex flex-column pt-1">
+<h4 class="card-title text-primary font-weight-bold mb-1">
+@Html.DisplayFor(modelItem => item.Name)
+</h4>
+<h6 class="card-subtitle mb-2 text-muted">
+Breed: @Html.DisplayFor(modelItem => item.BreedName)
+</h6>
+<h6 class="card-subtitle mb-3 text-muted">
+Age: @Html.DisplayFor(modelItem => item.Age) years
+</h6>
+<div class="mt-auto">
+<a asp-action="Details" asp-route-id="@item.Id"
+class="btn btn-block btn-outline-info btn-sm mb-2">
+Details
+</a>
+<div class="btn-group w-100" role="group">
 
-<a asp-action="Edit" asp-controller="Dog" asp-route-id="@item.Id">Edit</a>
+<a asp-action="Edit" asp-controller="Dog" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
+Edit
+</a>
 
-<a asp-action="Details" asp-route-id="@item.Id">Details</a>
+<a asp-action="Delete" asp-route-id="@item.Id"
 
-4
-
-<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-</td>
-</tr>
+class="btn btn-sm btn-danger">
+Delete
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
 }
-</tbody>
-</table>
+</div></table>
